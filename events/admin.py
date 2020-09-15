@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category, Event, File, Organizer, Person, Program, Schedule, Speaker
+from .models import Category, Organiser, Person, Program, Schedule, Speaker
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
@@ -7,22 +7,22 @@ class CategoryAdmin(admin.ModelAdmin):
     Customize Category Section Admin Panel
     """
     pass
+#
+# @admin.register(Event)
+# class EventAdmin(admin.ModelAdmin):
+#     """
+#     Customize Event Section Admin Panel
+#     """
+#     pass
+#
+# @admin.register(File)
+# class FileAdmin(admin.ModelAdmin):
+#     """
+#     Customize File Section Admin Panel
+#     """
+#     pass
 
-@admin.register(Event)
-class EventAdmin(admin.ModelAdmin):
-    """
-    Customize Event Section Admin Panel
-    """
-    pass
-
-@admin.register(File)
-class FileAdmin(admin.ModelAdmin):
-    """
-    Customize File Section Admin Panel
-    """
-    pass
-
-@admin.register(Organizer)
+@admin.register(Organiser)
 class OrganizerAdmin(admin.ModelAdmin):
     """
     Customize Organizer Section Admin Panel
