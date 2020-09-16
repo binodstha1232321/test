@@ -1,0 +1,17 @@
+-------------------- Auto-Git Log --------------------
+		Wed Sep 16 2020 12:52:59 GMT+0545 (Nepal Time)
+------------------------------------------------------
+
+Modified files:
+* blogs/admin.py
+* config/settings.py
+
+
+Created files:
+* .autogit/logs/log-16-8-2020-12-22-11.txt
+
+
+Deleted files:
+
+
+Renamed files:
