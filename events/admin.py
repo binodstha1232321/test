@@ -3,10 +3,11 @@ from .models import Category, Organiser, Person, Program, Schedule, Speaker
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
-    """
-    Customize Category Section Admin Panel
-    """
-    pass
+    list_display = ('name',)
+    prepopulated_fields = {'slug':['name']}
+    ordering = ['name']
+    search_fields = ['name']
+
 #
 # @admin.register(Event)
 # class EventAdmin(admin.ModelAdmin):
@@ -24,24 +25,23 @@ class CategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Organiser)
 class OrganizerAdmin(admin.ModelAdmin):
-    """
-    Customize Organizer Section Admin Panel
-    """
-    pass
+    list_display = ('name', 'email', 'phone', 'website', 'date_added')
+    search_fields = ['name', 'email']
+    ordering = ['name']
+    list_filter = ('date_added', 'date_edited')
+
 
 @admin.register(Person)
 class PersonAdmin(admin.ModelAdmin):
-    """
-    Customize Person Section Admin Panel
-    """
-    pass
+    list_display = ('full_name', 'email', 'contact_number')
+    search_fields = ['full_name']
+    ordering = ['full_name']
 
 @admin.register(Speaker)
 class SpeakerAdmin(admin.ModelAdmin):
-    """
-    Customize Speaker Section Admin Panel
-    """
-    pass
+    list_display = ('name', 'image', 'link')
+    ordering = ['name']
+    search_fields = ['name']
 
 @admin.register(Schedule)
 class ScheduleAdmin(admin.ModelAdmin):
@@ -52,7 +52,10 @@ class ScheduleAdmin(admin.ModelAdmin):
 
 @admin.register(Program)
 class ProgramAdmin(admin.ModelAdmin):
-    """
-    Customize Program Section Admin Panel
-    """
-    pass
+    list_display = ('title' , 'description', 'time', 'speaker')
+
+
+    title = models.CharField(max_length=200)
+    description = models.CharField(max_length=400)
+    time = models.DateTimeField()
+    speaker = models.ForeignKey(Speaker, models.DO_NOTHING)
