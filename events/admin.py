@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category, Organiser, Person, Program, Schedule, Speaker
+from .models import Category, Organiser, Person, Program, Schedule, Speaker, Event, File
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
@@ -8,20 +8,20 @@ class CategoryAdmin(admin.ModelAdmin):
     ordering = ['name']
     search_fields = ['name']
 
-#
-# @admin.register(Event)
-# class EventAdmin(admin.ModelAdmin):
-#     """
-#     Customize Event Section Admin Panel
-#     """
-#     pass
-#
-# @admin.register(File)
-# class FileAdmin(admin.ModelAdmin):
-#     """
-#     Customize File Section Admin Panel
-#     """
-#     pass
+
+@admin.register(Event)
+class EventAdmin(admin.ModelAdmin):
+    list_display = ('title', 'category', 'start_date', 'end_date', 'venue', 'organiser', 'person', 'date_added')
+    search_fields = ['title']
+    list_filter = ('start_date', 'end_date', 'date_added')
+    ordering = ['title']
+    prepopulated_fields = {'slug':['title']}
+    raw_id_fields = ['category', 'organiser', 'person']
+
+@admin.register(File)
+class FileAdmin(admin.ModelAdmin):
+    list_display = ('file', 'event')
+    raw_id_fields = ['event']
 
 @admin.register(Organiser)
 class OrganizerAdmin(admin.ModelAdmin):
@@ -45,17 +45,16 @@ class SpeakerAdmin(admin.ModelAdmin):
 
 @admin.register(Schedule)
 class ScheduleAdmin(admin.ModelAdmin):
-    """
-    Customize Schedule Section Admin Panel
-    """
-    pass
+    list_display = ('title', 'date')
+    search_fields = ['title']
+    ordering = ['date']
+    raw_id_fields = ['program']
 
+    
 @admin.register(Program)
 class ProgramAdmin(admin.ModelAdmin):
     list_display = ('title' , 'description', 'time', 'speaker')
-
-
-    title = models.CharField(max_length=200)
-    description = models.CharField(max_length=400)
-    time = models.DateTimeField()
-    speaker = models.ForeignKey(Speaker, models.DO_NOTHING)
+    search_fields = ['title']
+    list_filter = ('time',)
+    ordering = ['title']
+    raw_id_fields = ['speaker']

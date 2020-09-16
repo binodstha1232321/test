@@ -1,0 +1,15 @@
+-------------------- Auto-Git Log --------------------
+		Wed Sep 16 2020 13:52:57 GMT+0545 (Nepal Time)
+------------------------------------------------------
+
+Modified files:
+* events/admin.py
+
+
+Created files:
+
+
+Deleted files:
+
+
+Renamed files:
