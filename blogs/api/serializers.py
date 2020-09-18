@@ -8,6 +8,6 @@ class BlogSerializer(serializers.ModelSerializer):
         extra_kwargs = {
             'title':{
                 'read_only':True,
-                'style':{'input_type':'password'}
+                # 'style':{'input_type':'password'}
             }
         }
