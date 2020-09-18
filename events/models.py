@@ -35,8 +35,9 @@ class Organiser(models.Model):
 
 class Speaker(models.Model):
     name = models.CharField(max_length=100)
-    image = models.ImageField()
+    image = models.ImageField(upload_to='event_static/images/event_images')
     link = models.URLField()
+
 
     def __str__(self):
         return self.name
@@ -63,7 +64,7 @@ class Schedule(models.Model):
 class Event(models.Model):
     title = models.CharField(max_length=255)
     slug = models.SlugField()
-    featured_image = models.ImageField(null=True)
+    featured_image = models.ImageField(null=True,upload_to='event_static/images/event_images')
     category = models.ForeignKey(Category, on_delete=models.DO_NOTHING)
     start_date = models.DateField()
     end_date = models.DateField()
@@ -83,7 +84,7 @@ class Event(models.Model):
 
 
 class File(models.Model):
-    file = models.FileField()
+    file = models.FileField(upload_to='files')
     event = models.ForeignKey(Event, on_delete=models.DO_NOTHING)
 
     def __str__(self):
