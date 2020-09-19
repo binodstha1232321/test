@@ -4,6 +4,7 @@ from event.blogs.api import serializers
 from rest_framework import viewsets, permissions
 from event.blogs.models import Blog
 from django.contrib.auth.models import User
+from blogs.permissions import BlogPermission
 
 
 # ViewSets define the view behavior.
@@ -21,5 +22,8 @@ class BlogViewSet(viewsets.ModelViewSet):
     queryset = Blog.objects.all()
     serializer_class = BlogSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly,
-                        IsOwnerOrReadOnly
+                        BlogPermission
                         ]
+
+    def perform_create(self, serializer):
+        serializer.save(owner=self.request.user)
