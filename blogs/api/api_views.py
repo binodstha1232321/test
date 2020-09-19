@@ -5,5 +5,5 @@ from event.blogs.models import Blog
 
 class BlogView(viewsets.ViewSet):
     serializer_class = serializers.BlogSerializer
-    model_class_blog = Blog.objects.all()
+    queryset= Blog.objects.all()
     permission_classes = [permissions.IsAuthenticated,permissions.IsAdminUser]
