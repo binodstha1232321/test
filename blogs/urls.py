@@ -1,15 +1,12 @@
-# from django.urls import path,include
-# from . import views
-# # from .api.api_views import BlogView
-# from rest_framework import routers
+from django.urls import path,include
+from . import views
+from rest_framework.routers import DefaultRouter
 
-# from .api.api_views import BlogView
 
-# router = routers.DefaultRouter()
+router = DefaultRouter()
+router.register(r'blog', views.BlogViewSet)
+router.register(r'users', views.UserViewSet)
 
-# router.register('blog-api',BlogView.as_view,basename="blog-api")
-
-# urlpatterns = [
-#     # path('',views.index,name="index"),
-#     # router.urls
-# ]
+urlpatterns = [
+    path('', include(router.urls)),
+]
