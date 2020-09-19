@@ -3,9 +3,10 @@ from event.blogs.models import Blog
 from django.contrib.auth.models import User
 
 class BlogSerializer(serializers.ModelSerializer):
+    owner = serializers.ReadOnlyField(source='owner.username')
     class Meta:
         model = Blog
-        fields = '__all__'
+        fields = ['title', 'description', 'image', 'content', 'tags', 'featured', 'block', 'date_added', 'date_edited', 'owner']
         extra_kwargs = {
             'title':{
                 'read_only':True,
