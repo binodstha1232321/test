@@ -1,8 +1,8 @@
 from rest_framework.response import Response
-from event.blogs.api.serializers import UserSerializer, BlogSerializer
-from event.blogs.api import serializers
+from blogs.api.serializers import UserSerializer, BlogSerializer
+from blogs.api import serializers
 from rest_framework import viewsets, permissions
-from event.blogs.models import Blog
+from blogs.models import Blog
 from django.contrib.auth.models import User
 from blogs.permissions import BlogPermission
 

@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from event.blogs.models import Blog
+from blogs.models import Blog
 from django.contrib.auth.models import User
 
 class BlogSerializer(serializers.ModelSerializer):
