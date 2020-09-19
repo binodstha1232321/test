@@ -16,10 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from django.contrib.auth.models import User
+from core.api.api_views import FAQViewSet, ContactViewSet
 
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path ('', include('blogs.urls')),
+    path('blogs/', include('blogs.urls')),
+    path('FAQ/', views.FAQViewSet),
+    path('Contact/', views.ContactViewSet),
 ]
