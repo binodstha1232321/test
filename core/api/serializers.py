@@ -17,7 +17,7 @@ class FAQSerializer(serializers.ModelSerializer):
         return instance
     
 
-class Contact(serializers.ModelSerializer):
+class ContactSerializer(serializers.ModelSerializer):
     class Meta:
         model = Contact
         fields = '__all__'
