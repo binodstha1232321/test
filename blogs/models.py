@@ -10,4 +10,3 @@ class Blog(models.Model):
     block = models.BooleanField()
     date_added = models.DateField(auto_now_add=True)
     date_edited = models.DateField()
-
