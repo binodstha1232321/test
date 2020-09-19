@@ -1,9 +1,12 @@
 from rest_framework.response import Response
+from event.blogs.api.serializers import UserSerializer
 from event.blogs.api import serializers
 from rest_framework import viewsets, permissions
 from event.blogs.models import Blog
+from django.contrib.auth.models import User
 
-class BlogView(viewsets.ViewSet):
-    serializer_class = serializers.BlogSerializer
-    model_class_blog = Blog.objects.all()
-    permission_classes = [permissions.IsAuthenticated,permissions.IsAdminUser]
+
+# ViewSets define the view behavior.
+class UserViewSet(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer

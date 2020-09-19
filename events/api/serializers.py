@@ -28,7 +28,7 @@ class ScheduleSerializer(serializers.ModelSerializer):
         model = Schedule
         fields = '__all__'
 
-class PersonProgram(serializers.ModelSerializer):
+class ProgramSerailizer(serializers.ModelSerializer):
     class Meta:
         model = Program
         fields = '__all__'
