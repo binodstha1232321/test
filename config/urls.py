@@ -22,6 +22,6 @@ from django.contrib.auth.models import User
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('blogs.urls')),
-    path('', include('core.urls')),
+    path('blogs/', include('blogs.urls')),
+    path('core/', include('core.urls')),
 ]

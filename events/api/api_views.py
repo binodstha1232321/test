@@ -1,6 +1,6 @@
 from .serializers import ScheduleSerializer,CategorySerializer,PersonSerializer,OrganiserSerializer,SpeakerSerializer,ProgramSerailizer,EventSerializer,FileSerialzer
 from rest_framework import viewsets
-from event.events.models import Category,Person,Organiser,Speaker,Schedule,Program,Event,File
+from events.models import Category,Person,Organiser,Speaker,Schedule,Program,Event,File
 from rest_framework import permissions
 
 
